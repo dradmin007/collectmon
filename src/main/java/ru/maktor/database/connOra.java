@@ -22,13 +22,12 @@ public class connOra {
         *                 Class.forName("oracle.jdbc.driver.OracleDriver");
         *
         * */
+        urlDb = "jdbc:oracle:thin:@//" + conf.getConf().get("DB_HOST") + ":" + conf.getConf().get("DB_PORT") +
+                        "/" + conf.getConf().get("DB_NAME");
 
-      urlDb = "jdbc:oracle:thin:@//" + conf.getConf().get("DB_HOST") + ":" + conf.getConf().get("DB_PORT") +
-                    "/" + conf.getConf().get("DB_NAME");
 
-      user = conf.getConf().get("DB_USER");
-      passwd = conf.getConf().get("DB_PASSWD");
-
+        user = conf.getByName("DB_USER");
+        passwd = conf.getByName("DB_PASSWD");
     }
 
     public Connection connect()  throws SQLException {
